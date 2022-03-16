@@ -1,0 +1,79 @@
+<div class="input">
+  <div class="mb-3 form">
+    <form>
+      <label for="desc" class="form-label">New Todo</label>
+      <input type="text" class="form-control" #desc placeholder="Add Todo" />
+      <button
+        type="button"
+        class="btn btn-sm btn-primary"
+        (click)="addTodo(desc.value)"
+      >
+        Add Todo
+      </button>
+    </form>
+  </div>
+</div>
+<div class="main-container container">
+  <div class="container-1">
+    <div class="container-header-p"><h4>Pending Todos</h4></div>
+  <div class="container-pending">
+    
+    <div class="pending">
+      <ul *ngFor="let todo of todos">
+        <li *ngIf="todo.isCompleted === false" class="list-group-item">
+          {{ todo.desc
+          }}
+          <div class="btngrp">
+            <button
+            type="button"
+            class="btn btn-sm btn-success"
+            (click)="complete(todo)"
+          >
+            Mark as Done
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="delete(todo)"
+          >
+            Delete
+          </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="main-container container">
+    <div class="container-1">
+      <div class="container-header-c"><h4>Completed Todos</h4></div>
+    <div class="container-completed">
+      
+      <div class="completed">
+        <ul *ngFor="let todo of todos">
+          <li *ngIf="todo.isCompleted === true" class="list-group-item">
+            {{ todo.desc
+            }}
+            <div class="btngrp">
+              <button
+              type="button"
+              class="btn btn-sm btn-warning"
+              (click)="redo(todo)"
+            >
+              Redo
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-danger"
+              (click)="delete(todo)"
+            >
+              Delete
+            </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+</div>
