@@ -5,18 +5,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './Components/todos/todos.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { TodoServiceService } from './todo-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    NavbarComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TodoServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

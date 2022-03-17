@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoServiceService } from 'src/app/todo-service.service';
+import { Todo } from 'src/app/todo-service.service';
 
+// export interface Todo{
+//   desc:string
+//   isCompleted:boolean
 
-
-export interface Todo{
-  desc:string
-  isCompleted:boolean
-
-}
+// }
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -16,40 +16,36 @@ export interface Todo{
 export class TodosComponent implements OnInit {
   
   
-  localItem: any;
-  todos:Todo[];
+  // localItem: any;
+  todos:any[];
 
-  constructor() {
-    this.localItem = localStorage.getItem("todos");
-    if(this.localItem==null){
-      this.todos=[];
-    }
-    else{
-      this.todos = JSON.parse(this.localItem);
-    }
+  constructor(private todoService: TodoServiceService) {
+    // this.localItem = localStorage.getItem("todos");
+    // if(this.localItem==null){
+    //   this.todos=[];
+    // }
+    // else{
+    //   this.todos = JSON.parse(this.localItem);
+    // }
    }
 
   ngOnInit(): void {
   }
   complete(todo:Todo){
-    todo.isCompleted=true;
-  }
+       this.todoService.completeTodo(todo);
+      
+    }
   redo(todo:Todo){
-    todo.isCompleted=false;
+    this.todoService.redoTodo(todo);
+    
   }
   addTodo(desc:string){
-      var todo = {
-        desc:desc,
-        isCompleted:false
-      }
-      this.todos.push(todo);
-      localStorage.setItem("todos", JSON.stringify(this.todos));
-
+       let data = this.todoService.addTODO(desc);
+        this.todos= data;
   }
   delete(todo:Todo){
-    const index = this.todos.indexOf(todo);
-    this.todos.splice(index,1);
-    localStorage.setItem("todos", JSON.stringify(this.todos));
+    this.todoService.removeTodo(todo);
+   
   }
 
 }

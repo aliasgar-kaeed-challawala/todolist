@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-brand nav-title">WonderList</div>
+    
+      <div class="total count d-flex">
+        Total: {{todos.length}}
+      </div>
+      <div class="completed count d-flex">
+        Completed: {{completed}}
+      </div>
+      <div class="pending count d-flex">
+        Pending: {{todos.length - completed}}
+      </div>
+    
+  </div>
+</nav>
