@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export interface Todo{
   desc:string
   isCompleted:boolean
+  date:Date
 }
 
 @Injectable({
@@ -35,6 +36,7 @@ export class TodoServiceService {
     let todo = {} as Todo;
     todo.desc = description;
     todo.isCompleted = false;
+    todo.date = new Date();
     this.todos.push(todo);
     console.log(this.todos);
     this._todos.next(this.todos);
