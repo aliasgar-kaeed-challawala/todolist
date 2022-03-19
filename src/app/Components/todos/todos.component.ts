@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { TodoServiceService } from 'src/app/todo-service.service';
 import { Todo } from 'src/app/todo-service.service';
 
@@ -17,7 +17,7 @@ export class TodosComponent implements OnInit {
   
   
   // localItem: any;
-  todos:any[];
+  todos:any[] = [];
 
   constructor(private todoService: TodoServiceService) {
     // this.localItem = localStorage.getItem("todos");
@@ -27,24 +27,51 @@ export class TodosComponent implements OnInit {
     // else{
     //   this.todos = JSON.parse(this.localItem);
     // }
+    this.getData();
+   
    }
-
+   getData(){
+    // this.todoService.getData().subscribe(
+    //   data=>{
+ 
+    //     if(data){
+    //         const todoItem : Todo[] = [];
+    //         for(const[key,value] of Object.entries(data)){
+              
+    //           todoItem.push(value)
+    //           console.log(todoItem)
+    //         }
+            
+    //         for(let i=0;i<todoItem.length;i++){
+    //             this.todos.push(todoItem[i]);
+    //         }
+    //     }
+    //   }
+    // )
+    this.todoService._todos.subscribe(data=>{
+      // this.calculateCount(data)
+      this.todos=data;
+     
+    })
+   }
   ngOnInit(): void {
+    this.getData();
   }
-  complete(todo:Todo){
-       this.todoService.completeTodo(todo);
+  complete(key:Optional){
+       this.todoService.completeTodo(key);
+       this.ngOnInit();
       
     }
-  redo(todo:Todo){
-    this.todoService.redoTodo(todo);
+  redo(key:Optional){
+    this.todoService.redoTodo(key);
     
   }
   addTodo(desc:string){
-       let data = this.todoService.addTODO(desc);
-        this.todos= data;
+       this.todoService.addTODO(desc);
+        
   }
-  delete(todo:Todo){
-    this.todoService.removeTodo(todo);
+  delete(key:Optional){
+    this.todoService.removeTodo(key);
    
   }
 

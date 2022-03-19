@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './Components/todos/todos.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { TodoServiceService } from './todo-service.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { TodoServiceService } from './todo-service.service';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase)
+    
   ],
   providers: [TodoServiceService],
   bootstrap: [AppComponent]

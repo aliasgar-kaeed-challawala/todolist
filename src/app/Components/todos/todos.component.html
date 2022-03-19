@@ -21,32 +21,32 @@
     <div class="pending">
       <ul *ngFor="let todo of todos">
         <li *ngIf="todo.isCompleted === false" class="list-group-item">
-          {{ todo.desc
-          }}
+          <p>{{ todo.desc
+          }}</p> 
           <div class="date">
-            created at: {{todo.date | date:"short"}}
+            created at: {{todo.date | date:"shortDate"}}
           </div>
           <div class="btngrp">
             <button
             type="button"
-            class="btn btn-sm btn-success"
-            (click)="complete(todo)"
+            class="btn btn-sm btn-outline-success"
+            (click)="complete(todo.id)"
           >
-            Done
+          ✔️ 
           </button>
           <button
             type="button"
-            class="btn btn-sm btn-danger"
-            (click)="delete(todo)"
+            class="btn btn-sm btn-outline-danger"
+            (click)="delete(todo.id)"
           >
-            Delete
+          ❌
           </button>
           </div>
         </li>
       </ul>
     </div>
   </div>
-  </div>
+</div>
 
   <div class="main-container container">
     <div class="container-1">
@@ -56,25 +56,25 @@
       <div class="completed">
         <ul *ngFor="let todo of todos">
           <li *ngIf="todo.isCompleted === true" class="list-group-item">
-            {{ todo.desc 
-            }}
+            <p>{{ todo.desc 
+            }}</p>
             <div class="date">
-              created at: {{todo.date | date:"short"}}
+              created at: {{todo.date | date:"shortDate"}}
             </div>
             <div class="btngrp">
               <button
               type="button"
-              class="btn btn-sm btn-warning"
-              (click)="redo(todo)"
+              class="btn btn-sm btn-outline-primary"
+              (click)="redo(todo.id)"
             >
-              Redo
+            ↩️
             </button>
             <button
               type="button"
-              class="btn btn-sm btn-danger"
-              (click)="delete(todo)"
+              class="btn btn-sm btn-outline-danger"
+              (click)="delete(todo.id)"
             >
-              Delete
+            ❌
             </button>
             </div>
           </li>

@@ -64,3 +64,6 @@ label{
 .btngrp button{
     margin: 0px 5px;
 }
+li p{
+    font-weight: bold;
+}
