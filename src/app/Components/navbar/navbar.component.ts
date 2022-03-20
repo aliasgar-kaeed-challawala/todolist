@@ -9,6 +9,7 @@ import { Todo, TodoServiceService } from 'src/app/todo-service.service';
 export class NavbarComponent implements OnInit {
 
   todos: Todo[] = [];
+  categories: string[] = ["work","leisure","personal","others"];
   completed: number = 0;
   constructor(private todoService: TodoServiceService) {
     this.todoService.todos$.subscribe(todos => this.todos = todos);

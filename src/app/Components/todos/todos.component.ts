@@ -1,6 +1,7 @@
 import { Component, OnInit, Optional } from '@angular/core';
 import { TodoServiceService } from 'src/app/todo-service.service';
 import { Todo } from 'src/app/todo-service.service';
+import { ActivatedRoute, Params} from '@angular/router';
 
 // export interface Todo{
 //   desc:string
@@ -18,8 +19,9 @@ export class TodosComponent implements OnInit {
   
   // localItem: any;
   todos:any[] = [];
+  category:any = "";
 
-  constructor(private todoService: TodoServiceService) {
+  constructor(private todoService: TodoServiceService,private route: ActivatedRoute) {
     // this.localItem = localStorage.getItem("todos");
     // if(this.localItem==null){
     //   this.todos=[];
@@ -28,8 +30,19 @@ export class TodosComponent implements OnInit {
     //   this.todos = JSON.parse(this.localItem);
     // }
     this.getData();
+    this.route.paramMap.subscribe((params) => {
+      console.log(params.get('id'))
+      console.log(this.category);      
+      this.category = params.get('id');
+      console.log(this.category);
+    })
+    
+    
+    
+    
    
    }
+   
    getData(){
     // this.todoService.getData().subscribe(
     //   data=>{
@@ -56,6 +69,8 @@ export class TodosComponent implements OnInit {
    }
   ngOnInit(): void {
     this.getData();
+    
+ 
   }
   complete(key:Optional){
        this.todoService.completeTodo(key);
@@ -66,10 +81,10 @@ export class TodosComponent implements OnInit {
     this.todoService.redoTodo(key);
     
   }
-  addTodo(desc:string){
-       this.todoService.addTODO(desc);
+  // addTodo(desc:string,category:string,title:string){
+  //      this.todoService.addTODO(desc,category,title);
         
-  }
+  // }
   delete(key:Optional){
     this.todoService.removeTodo(key);
    

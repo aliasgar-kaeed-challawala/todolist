@@ -2,7 +2,7 @@ li{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 35vw;
+    width: 36vw;
     border-radius: 5px;
   
 }
@@ -16,12 +16,7 @@ ul{
 
 }
 
-.input{
-    
-    width: 80vw;
-    margin: 0% auto;
-    margin-top: 20px;
-}
+
 h4{
     margin-left: 20px;
 }
@@ -48,22 +43,20 @@ h4{
     justify-content: center;
     border-radius: 5px;
 }
+
 .container-completed{
     background-color: #b7efc5;
     border: 2px solid #208b3a;
 }
-label{
-    font-size: 30px;
-}
-.form button{
-    margin-top: 10px;
-}
+
+
 .pending{
     width: 30vw;
 }
 .btngrp button{
-    margin: 0px 5px;
+    margin:  5px;
 }
 li p{
     font-weight: bold;
 }
+

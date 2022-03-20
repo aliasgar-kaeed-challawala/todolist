@@ -1,85 +1,84 @@
-<div class="input">
-  <div class="mb-3 form">
-    <form>
-      <label for="desc" class="form-label">New Todo</label>
-      <input type="text" class="form-control" #desc placeholder="Add Todo" />
-      <button
-        type="button"
-        class="btn btn-sm btn-primary"
-        (click)="addTodo(desc.value)"
-      >
-        Add Todo
-      </button>
-    </form>
-  </div>
+<div class="main-content">
+  <router-outlet></router-outlet>
 </div>
 <div class="main-container container">
   <div class="container-1">
-    <div class="container-header-p"><h4>Pending Todos</h4></div>
-  <div class="container-common container-pending ">
     
-    <div class="pending">
-      <ul *ngFor="let todo of todos">
-        <li *ngIf="todo.isCompleted === false" class="list-group-item">
-          <p>{{ todo.desc
-          }}</p> 
-          <div class="date">
-            created at: {{todo.date | date:"shortDate"}}
-          </div>
-          <div class="btngrp">
-            <button
-            type="button"
-            class="btn btn-sm btn-outline-success"
-            (click)="complete(todo.id)"
-          >
-          ✔️ 
-          </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-danger"
-            (click)="delete(todo.id)"
-          >
-          ❌
-          </button>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-  <div class="main-container container">
-    <div class="container-1">
-      <div class="container-header-c"><h4>Completed Todos</h4></div>
-    <div class="container-completed container-common">
-      
-      <div class="completed">
+    <div class="container-header-p"><h4>Pending Todos</h4></div>
+    <div class="container-common container-pending">
+      <div class="pending">
         <ul *ngFor="let todo of todos">
-          <li *ngIf="todo.isCompleted === true" class="list-group-item">
-            <p>{{ todo.desc 
-            }}</p>
-            <div class="date">
-              created at: {{todo.date | date:"shortDate"}}
-            </div>
-            <div class="btngrp">
-              <button
-              type="button"
-              class="btn btn-sm btn-outline-primary"
-              (click)="redo(todo.id)"
-            >
-            ↩️
-            </button>
-            <button
-              type="button"
-              class="btn btn-sm btn-outline-danger"
-              (click)="delete(todo.id)"
-            >
-            ❌
-            </button>
-            </div>
-          </li>
+          
+            <li *ngIf="(todo.isCompleted === false) && (todo.category == category)" class="list-group-item">
+              <div class="todo">
+                <p>{{ todo.desc }}</p>
+                <p class="badge bg-info">{{todo.category}}</p>
+              </div>
+              
+              <div class="date">
+                created at: {{ todo.date | date: "shortDate" }}
+              </div>
+              <div class="btngrp">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-success"
+                  (click)="complete(todo.id)"
+                >
+                  ✔️
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger"
+                  (click)="delete(todo.id)"
+                >
+                  ❌
+                </button>
+              </div>
+            </li>
+          
         </ul>
       </div>
     </div>
+  </div>
+
+  <div class="main-container container">
+    
+    <div class="container-1">
+      <div class="container-header-c"><h4>Completed Todos</h4></div>
+      <div class="container-completed container-common">
+        <div class="completed">
+          <ul *ngFor="let todo of todos">
+            
+              <li *ngIf="(todo.isCompleted === true) && (todo.category == category) " class="list-group-item">
+                <div class="todo">
+                  <p>{{ todo.desc }}</p>
+                  <p class="badge bg-info">{{todo.category}}</p>
+                </div>
+                <div class="date">
+                  created at: {{ todo.date | date: "shortDate" }}
+                </div>
+                <div class="btngrp">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary"
+                    (click)="redo(todo.id)"
+                  >
+                    ↩️
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-danger"
+                    (click)="delete(todo.id)"
+                  >
+                    ❌
+                  </button>
+                </div>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+
 </div>

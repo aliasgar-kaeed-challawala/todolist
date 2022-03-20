@@ -7,6 +7,8 @@ export interface Todo{
   desc:string
   isCompleted:boolean
   date:Date
+  category:string
+  title:string
 }
 
 @Injectable({
@@ -35,12 +37,14 @@ export class TodoServiceService {
   //     this.todos = JSON.parse(this.localItem);
   //   }
   //  }
-  addTODO(description: string){
+  addTODO(description: string,category:string,title:string){
     
     let todo = {} as Todo;
     todo.id=this.id;
     this.id+=1;
     todo.desc = description;
+    todo.category=category;
+    todo.title=title;
     todo.isCompleted = false;
     todo.date = new Date();
     this.http.post('https://todolist-app-162c5-default-rtdb.firebaseio.com/list.json',todo).subscribe(
@@ -94,7 +98,6 @@ export class TodoServiceService {
     console.log(key);
     this.http.patch(`${this.baseUrl}/${key}.json`,temp).subscribe(
       data=>{
-        console.log(data)
         this.getData();
       }
     ) 
@@ -107,10 +110,7 @@ export class TodoServiceService {
       if (data) {
         this.listItems = Object.keys(data).map((key: any) => {
           data[key].id = key;
-          this.listItems=data[key];
-          console.log("HIIIIIIIIIIIIIIIIIIII");
-          
-          console.log(data[key]);
+          this.listItems=data[key]; 
           return data[key];
         });
         this._todos.next(this.listItems)

@@ -1,0 +1,39 @@
+<div class="input">
+    <div class="header">
+      <h3>New Todo</h3>
+      
+    </div>
+    <div class="mb-3 form" id="form_">
+      <form >
+        <label for="title" class="form-label">Todo Title</label>
+        <input
+          type="text"
+          class="form-control"
+          #title
+          placeholder="Add Todo Title"
+        />
+        <label for="desc" class="form-label">Todo Description</label>
+        <input
+          type="text"
+          class="form-control"
+          #desc
+          placeholder="Add Todo Description"
+        />
+        <label for="category" class="form-label">Select Category</label>
+        <select class="form-select" aria-label="Default select example" #category>
+          <option selected>Select Category</option>
+          <option value="personal">personal</option>
+          <option value="work">work</option>
+          <option value="leisure">leisure</option>
+          <option value="Others">others</option>
+        </select>
+        <button
+          type="button"
+          class="btn btn-sm btn-primary"
+          (click)="addTodo(desc.value, category.value, title.value)"
+        >
+          Add Todo
+        </button>
+      </form>
+    </div>
+  </div>

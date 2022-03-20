@@ -10,15 +10,27 @@ import { TodoServiceService } from './todo-service.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoformComponent } from './Components/todoform/todoform.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './Components/main/main.component';
+
+
+
+const routes:Routes=[
+  {path:'todo/:id',component:TodosComponent}
+]
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    NavbarComponent
+    NavbarComponent,
+    TodoformComponent,
+    MainComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     FormsModule,
     BrowserModule,
     AppRoutingModule,

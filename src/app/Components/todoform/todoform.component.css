@@ -1,0 +1,24 @@
+.input{
+    
+    width: 80vw;
+    margin: 0% auto;
+    margin-top: 20px;
+}
+.header{
+    display:flex;
+    flex-direction: row;
+}
+.form{
+    width: 82vw;
+    border: 2px solid #219ebc;
+    padding: 20px;
+    background-color: #caf0f8;
+    border-radius: 5px;
+}
+.form button{
+    margin-top: 10px;
+}
+label{
+    font-size: 18px;
+    margin-top: 5px;
+}
