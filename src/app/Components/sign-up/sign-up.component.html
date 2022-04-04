@@ -9,78 +9,7 @@
   </div>
   <div class="right">
     <h3>Sign Up</h3>
-    <!-- <form [formGroup]="signUpForm">
-      <div class="mb-3 form-group">
-        <label for="name" class="form-label">Name</label>
-        <input
-        
-          required
-          ngModel
-          type="text"
-          name="name"
-          class="form-control"
-          #name="ngModel"
-          id="name"
-          placeholder="Enter Your Name"
-        />
-      </div>
-      <div class="mb-3 form-group">
-        <label for="emailId" class="form-label">Email address</label>
-        <input
-          required
-          ngModel
-          type="email"
-          name="emailId"
-          class="form-control"
-          #emailId="ngModel"
-          id="emailId"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div
-        class="invalid"
-        *ngIf="emailId.touched && emailId.errors && !emailId.valid"
-      >
-        Email Id is required
-      </div>
-      <div class="mb-3 form-group">
-        <label for="password" class="form-label">Password</label>
-        <input
-          required
-          minlength="8"
-          ngModel
-          type="password"
-          #password="ngModel"
-          name="password"
-          class="form-control"
-          id="password"
-          placeholder="Enter your password"
-          required="true"
-        />
-        <div class="invalid" *ngIf="password.touched && !password.valid">
-          Password is required
-        </div>
-      </div>
-      <div class="mb-3 form-group">
-        <label for="confirmPassword" class="form-label">Confirm Password</label>
-        <input
-          required
-          minlength="8"
-          ngModel
-          type="password"
-          #confirmPassword="ngModel"
-          name="confirmPassword"
-          class="form-control"
-          id="confirmPassword"
-          placeholder="Confirm password"
-          required="true"
-        />
-        <div class="invalid" *ngIf="password.touched && !password.valid">
-          Passwords do not match!
-        </div>
-      </div>
-      <button type="submit" class="login btn btn-outline-success">Sign Up</button>
-    </form> -->
+    
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="name-section division">
           <div class="mb-3 form-group">
