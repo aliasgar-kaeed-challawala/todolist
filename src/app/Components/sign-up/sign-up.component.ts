@@ -8,11 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  signUpForm = new FormGroup(
-    {
-      emailId:new FormControl('name@example.com'),
-    }
-  )
+  
   registerForm = new FormGroup({
     name: new FormControl('',[Validators.required,Validators.minLength(4)]),
     email:new FormControl('',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
