@@ -1,0 +1,31 @@
+<div class="d-flex flex-row bd-highlight mb-3 align-items-center justify-content-center main">
+    <div class="left">
+        <img src="https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg?t=st=1647854131~exp=1647854731~hmac=1d7f7ba30e8a219c383f282c26e988ef63e433cdad706df952aef9e760fc1fd9&w=740" alt="">
+    </div>
+    <div class="right">
+        <h3>Sign In</h3>
+        <form #signInForm="ngForm" (ngSubmit)="signIn(signInForm)">
+            <div class="mb-3 form-group">
+                <label for="emailId" class="form-label">Email address</label>
+                <input required ngModel type="email" name="emailId" class="form-control" #emailId="ngModel"id="emailId" placeholder="name@example.com">
+              </div>
+              <div class="invalid" *ngIf="emailId.touched && emailId.errors && !emailId.valid">
+                Email Id is required
+            </div>
+              <div class="mb-3 form-group">
+                <label for="password" class="form-label">Password</label>
+                <input required minlength="8" ngModel type="password" #password="ngModel" name="password" class="form-control" id="password" placeholder="Enter your password" required="true">
+              <div class="invalid" *ngIf="password.touched && !password.valid">
+                  Password is required
+              </div>
+            </div>
+              <button type="submit" class="login btn btn-outline-success">
+                  Login
+              </button>
+        </form>
+        <div class="signUp">
+            <p>Don't have an account? <a [routerLink]="['/signup']"> Sign Up</a></p>
+            
+        </div>
+    </div>
+</div>

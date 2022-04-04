@@ -9,3 +9,15 @@
     font-weight: 400;
     color:aliceblue;
 }
+.button{
+    background-color: #40916c;
+    border: 1px solid #40916c;
+    color: aliceblue;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.button:hover{
+    border: 1px solid aliceblue;
+    border-radius: 3px;
+    padding: 5px;
+}

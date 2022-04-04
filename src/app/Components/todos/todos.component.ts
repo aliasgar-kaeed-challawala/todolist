@@ -29,13 +29,13 @@ export class TodosComponent implements OnInit {
     // else{
     //   this.todos = JSON.parse(this.localItem);
     // }
-    this.getData();
+    
     this.route.paramMap.subscribe((params) => {
-      console.log(params.get('id'))
-      console.log(this.category);      
+      console.log(params.get('id'))   
       this.category = params.get('id');
       console.log(this.category);
     })
+    this.getData();
     
     
     

@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    border: 0;
+    
+    
+  }
+  img {
+    height: 80vh;
+    width: 400px;
+  }
+  .main {
+    margin-top: 40px;
+    margin-left: 130px;
+    padding: 30px;
+  
+    width: 80vw;
+    height: 90vh;
+    background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba(35, 134, 88, 0.37);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  .left {
+    width: 45vw;
+    height: 80vh;
+  }
+  .right {
+    margin-top: 200px;
+    width: 45vw;
+    height: 90vh;
+  }
+  form {
+    margin-top: 20px;
+  }
+  h3{
+      color: #465B66;
+  }
+  .login{
+      border: 1px solid #28DEC0;
+  }
+  .btn-outline-success{
+      color: #28DEC0 !important;
+      
+      border: 1px solid #28DEC0 !important;
+  }
+  .btn-outline-success:hover{
+      background-color: #28DEC0 !important;
+      color: #465B66 !important;
+      border: 1px solid #465B66 !important;
+  }
+  .signUp{
+      margin-top: 10px;
+  }
+  a:link{
+      text-decoration: none;
+      color: #28DEC0;
+  }
+  .invalid{
+      margin: 5px;
+      color: #ef233c;
+  }

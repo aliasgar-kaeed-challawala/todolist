@@ -59,4 +59,22 @@ h4{
 li p{
     font-weight: bold;
 }
-
+.main-container{
+    margin-top: 30px;
+}
+.addTodo{
+    margin-top: 10px;
+    width: 95vw;
+    margin-left: 30px;
+    
+}
+.btn-outline-success{
+    color: #40916C !important;
+    
+    border: 1px solid #40916C !important;
+}
+.btn-outline-success:hover{
+    background-color: #40916C !important;
+    color: #FFFFFF !important;
+    border: 1px solid #FFFFFF !important;
+}

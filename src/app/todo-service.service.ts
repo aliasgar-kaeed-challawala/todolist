@@ -109,6 +109,8 @@ export class TodoServiceService {
       this.listItems = [];
       if (data) {
         this.listItems = Object.keys(data).map((key: any) => {
+          console.log(data)
+          console.log(data[key]);
           data[key].id = key;
           this.listItems=data[key]; 
           return data[key];
